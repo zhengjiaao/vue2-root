@@ -1,18 +1,16 @@
 {
-  "name": "vue-kg",
+  "name": "vue2-project-webpack",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "Zhengjiaao <zhengja@dist.com.cn>",
+  "author": "郑家骜[ào] <zhengja@dist.com.cn>",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "clean": "powershell -ExecutionPolicy Bypass -File .\\clean.ps1"
   },
   "dependencies": {
-    "@antv/g6": "^4.8.9",
-    "@antv/vis-predict-engine": "^0.1.1",
-    "element-ui": "^2.15.13",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },
