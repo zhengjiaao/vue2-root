@@ -1,4 +1,4 @@
-# vue3-root
+# vue2-package
 
 - [vue2-英文-官网](https://v2.vuejs.org/)
 - [vue2-中文-快速开始](https://v2.cn.vuejs.org/v2/guide/)
@@ -48,6 +48,13 @@ npm install -g @vue/cli-init
 
 # 安装 webpack（如果尚未安装）
 npm install -g webpack
+```
+
+查看已安装的版本：
+
+```shell
+vue --version
+@vue/cli 5.0.8
 ```
 
 #### 创建项目
