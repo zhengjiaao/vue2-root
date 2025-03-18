@@ -9,7 +9,7 @@
 
     <h3>get请求-有参-单个参数</h3>
     <input v-model="url2" placeholder="url" />
-    <input v-model="loginName" placeholder="loginName" />
+    <input v-model="param" placeholder="param" />
     <button type="button" @click="getAjax2()">点击尝试</button>
     <h3>data: {{ addData2 }}</h3>
   </div>
@@ -21,11 +21,9 @@ export default {
   name: "VueResourceGet",
   data() {
     return {
-      url1:
-        "http://localhost:8080/springboot-test-remoteservice/rest/v1/get/userdto",
-      url2:
-        "http://localhost:8080/springboot-test-remoteservice/rest/v1/get/login/ex",
-      loginName: "李四",
+      url1: "http://localhost:19000/get/userdto",
+      url2: "http://localhost:19000/get/param/v1",
+      param: "李四",
       addData1: {},
       addData2: {},
       msg: "演示GET请求",
@@ -64,7 +62,7 @@ export default {
       axios
         .get(this.url2, {
           params: {
-            loginName: this.loginName, //get带参数
+            param: this.param, //get带参数
           },
         })
         .then(successCallback, errorCallback);

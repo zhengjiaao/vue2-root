@@ -24,10 +24,8 @@ export default {
   name: "VueResourcePut",
   data() {
     return {
-      url1:
-        "http://localhost:8080/springboot-test-remoteservice/rest/v1/put/v1",
-      url2:
-        "http://localhost:8080/springboot-test-remoteservice/rest/v1/put/userdto",
+      url1: "http://localhost:19000/put",
+      url2: "http://localhost:19000/put/object/v2",
       myage: "21",
       myname: "李四",
       addData1: {},

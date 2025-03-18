@@ -40,12 +40,9 @@ export default {
   name: "VueResourcePostFile",
   data() {
     return {
-      url1:
-        "http://localhost:8080/springboot-test-remoteservice/rest/v1/post/upload/v1",
-      url2:
-        "http://localhost:8080/springboot-test-remoteservice/rest/v1/post/upload/v2",
-      url3:
-        "http://localhost:8080/springboot-test-remoteservice/rest/v1/post/upload/v3",
+      url1: "http://localhost:19000/post/upload/v1",
+      url2: "http://localhost:19000/post/upload/v3",
+      url3: "http://localhost:19000/post/upload/v2",
       myfile1: {},
       myfile2: {},
       newFileName: "",
@@ -112,7 +109,7 @@ export default {
       //表单数据
       var formData = new FormData();
       formData.append("file", this.myfile2);
-      formData.append("fileName", this.newFileName);
+      formData.append("filename", this.newFileName);
       var successCallback = (response) => {
         console.log("服务器请求成功了");
         let data = response.data;
