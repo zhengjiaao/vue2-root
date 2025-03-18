@@ -1,78 +1,94 @@
-# vue.js 学习
+# vue3-root
 
+- [vue2-英文-官网](https://v2.vuejs.org/)
+- [vue2-中文-快速开始](https://v2.cn.vuejs.org/v2/guide/)
+- [vue2-英文-快速开始](https://v2.vuejs.org/v2/guide/)
 
+本项目是基于 **`vue2`** 框架集成各种前端组件示例。
 
-### 一、环境搭建
+## 目录结构
 
-##### 安装node.js 
+- [Vue2项目结构介绍.md](docs/Vue2项目结构介绍.md)
 
-> 参考：windwos node.js 一直默认安装, nodejs默认带npm
+## 基础环境
 
-```python
-#查看
+- 确保你安装了最新版本的 [Node.js](https://nodejs.org/)
+
+验证环境：
+
+```shell
 node -v
 npm -v
-
-#配置npm镜像为国内的cnpm
-npm install -g cnpm --registry=https://registry.npm.taobao.org
-cnpm -v
 ```
 
-##### 安装vue-cli
+本地环境验证示例：
 
-```python
-#安装vue
-cnpm install --g vue-cl
-cnpm i -g @vue/cli-init
-# vue ui 命令没有反应，则重新安装vue
-cnpm install -g @vue/cli
+```shell
+# 本地采用的版本示例
+node -v
+v18.16.0
+npm -v
+9.5.1
 ```
 
-##### 安装webpack
+## 快速开始
 
-```python
-#打包
-cnpm install -g webpack
+Vue2 创建项目有很多种方式，这里演示的分别是：
+
+- 使用 Vue CLI 创建项目(提供命令行、图形界面创建项目)
+- 使用 webpack 创建项目(提供命令行创建项目)
+
+### 使用 Vue CLI 创建项目
+
+Vue CLI 是官方推荐的脚手架工具，适合快速搭建 Vue 项目，适合大部分中小型项目。
+
+#### 1.安装vue-cli
+
+安装 Vue CLI：
+
+```shell
+# 安装 Vue CLI（如果尚未安装）
+npm install -g @vue/cli
 ```
 
+查看版本：
 
+```shell
+vue --version
 
-### 二、项目创建
-
-##### 可视化方式-推荐
-
-> 可视化方式创建项目速度，取决网速快慢
-
-```cmd
-# cmd 随便找个存放项目的目录
-vue ui
+@vue/cli 5.0.8
 ```
 
-##### 命令行方式
+#### 创建项目
 
-```cmd
-# cmd
-vue init webpack 项目名称
-```
+```shell
+# 创建 Vue 2 项目
+vue create vue2-project-vuecli
 
-### 三、项目运行
+# 如果需要手动选择 Vue 2 版本，在创建时选择 "Manually select features" 并指定 Vue 版本
 
-##### 可视化方式
-
-```
-# cmd 项目的目录
-vue ui
-```
-
-##### 命令行方式
-
-```
+# 运行项目
+cd vue2-project-vuecli
 npm run serve
-npm run dev
 ```
 
-##### 其它工具-如-vscode
+### 使用 webpack 创建项目
 
-```python
-# 
+#### 全局安装
+
+```shell
+# 安装 Vue CLI（如果尚未安装）
+npm install -g @vue/cli
+npm install -g @vue/cli-init
+
+# 安装 webpack（如果尚未安装）
+npm install -g webpack
 ```
+
+#### 创建项目
+
+```shell
+vue init webpack vue2-project-webpack
+``` 
+
+![使用webpack创建项目.png](./docs/使用webpack创建项目.png)
