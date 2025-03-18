@@ -22,10 +22,8 @@ export default {
   name: "VueResourcePost",
   data() {
     return {
-      url1:
-        "http://localhost:8080/springboot-test-remoteservice/rest/v1/post/userdto2",
-      url2:
-        "http://localhost:8080/springboot-test-remoteservice/rest/v1/post/userdto4",
+      url1: "http://localhost:19000/post",
+      url2: "http://localhost:19000/post/object/v2",
       myage: "21",
       myname: "李四",
       addData1: {},
@@ -47,12 +45,15 @@ export default {
         mode: 'cors', // no-cors, cors, *same-origin
         redirect: 'follow', // manual, *follow, error
         referrer: 'no-referrer', // *client, no-referrer
-      }).then(function (response) {
-        return response.json();
-      }).then(function (data) {
-        //注意这里得到的才是最终的数据
-        console.log(data);
       })
+        .then((response) => response.text())  // 使用 text() 方法获取文本响应
+        .then((data) => {
+          console.log(data);
+          this.addData1 = data;  // 箭头函数确保 this 指向正确
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
     },
     getAjax2: function () {
       //有参请求
@@ -66,12 +67,15 @@ export default {
         mode: 'cors', // no-cors, cors, *same-origin
         redirect: 'follow', // manual, *follow, error
         referrer: 'no-referrer', // *client, no-referrer
-      }).then(function (response) {
-        return response.json();
-      }).then(function (data) {
-        //注意这里得到的才是最终的数据
-        console.log(data);
-      });
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          this.addData2 = data;  // 箭头函数确保 this 指向正确
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
     },
   },
 };

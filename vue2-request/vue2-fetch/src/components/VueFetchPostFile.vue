@@ -38,12 +38,9 @@
     name: "VueFetchPostFile",
     data() {
       return {
-        url1:
-          "http://localhost:8080/springboot-test-remoteservice/rest/v1/post/upload/v1",
-        url2:
-          "http://localhost:8080/springboot-test-remoteservice/rest/v1/post/upload/v2",
-        url3:
-          "http://localhost:8080/springboot-test-remoteservice/rest/v1/post/upload/v3",
+        url1: "http://localhost:19000/post/upload/v1",
+        url2: "http://localhost:19000/post/upload/v3",
+        url3: "http://localhost:19000/post/upload/v2",
         myfile1: {},
         myfile2: {},
         newFileName: "",
@@ -91,6 +88,10 @@
           body: formData
         })
           .then(response => response.json())
+          .then((data) => {
+            console.log(data);
+            this.data1 = data;  // 箭头函数确保 this 指向正确
+          })
           .catch(error => console.error('Error:', error))
           .then(response => console.log('Success:', response));
       },
@@ -99,13 +100,17 @@
       upload2: function () {
         var formData = new FormData();
         formData.append("file", this.myfile2);
-        formData.append("fileName", this.newFileName);
+        formData.append("filename", this.newFileName);
 
         fetch(this.url2, {
           method: 'POST',  // POST/PUT
           body: formData
         })
           .then(response => response.json())
+          .then((data) => {
+            console.log(data);
+            this.data2 = data;  // 箭头函数确保 this 指向正确
+          })
           .catch(error => console.error('Error:', error))
           .then(response => console.log('Success:', response));
       },
@@ -117,6 +122,10 @@
           body: this.fileFormData
         })
           .then(response => response.json())
+          .then((data) => {
+            console.log(data);
+            this.data3 = data;  // 箭头函数确保 this 指向正确
+          })
           .then(response => console.log('Success:', JSON.stringify(response)))
           .catch(error => console.error('Error:', error));
       },

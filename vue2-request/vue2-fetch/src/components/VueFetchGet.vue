@@ -9,7 +9,7 @@
 
     <h3>get请求-有参-单个参数</h3>
     <input v-model="url2" placeholder="url" />
-    <input v-model="loginName" placeholder="loginName" />
+    <input v-model="param" placeholder="param" />
     <button type="button" @click="getAjax2()">点击尝试</button>
     <h3>data: {{ addData2 }}</h3>
   </div>
@@ -21,11 +21,9 @@ export default {
   name: "VueFetchGet",
   data() {
     return {
-      url1:
-        "http://localhost:8080/springboot-test-remoteservice/rest/v1/get/userdto",
-      url2:
-        "http://localhost:8080/springboot-test-remoteservice/rest/v1/get/login/ex",
-      loginName: "李四",
+      url1: "http://localhost:19000/get/userdto",
+      url2: "http://localhost:19000/get/param/v1",
+      param: "李四",
       addData1: {},
       addData2: {},
       msg: "演示GET请求",
@@ -56,31 +54,29 @@ export default {
         mode: 'cors', // no-cors, cors, *same-origin
         redirect: 'follow', // manual, *follow, error
         referrer: 'no-referrer', // *client, no-referrer
-      }).then(response => response.json()) // 解析为 JSON
-        .then(data => {
-          // 在这里处理数据
+      })
+        .then((response) => response.text())  // 使用 text() 方法获取文本响应
+        .then((data) => {
           console.log(data);
-          this.addData1 = data;
+          this.addData1 = data;  // 箭头函数确保 this 指向正确
         })
-        .catch(error => {
-          // 处理错误
-          console.error(error);
+        .catch((error) => {
+          console.error('Error:', error);
         });
     },
 
     //有参请求
     getAjax2: function () {
-      fetch(this.url2 + "?" + "loginName=" + this.loginName, {
+      fetch(this.url2 + "?" + "param=" + this.param, {
         method: 'GET',
-      }).then(response => response.json()) // 解析为 JSON
-        .then(data => {
-          // 在这里处理数据
+      })
+        .then((response) => response.text())  // 使用 text() 方法获取文本响应
+        .then((data) => {
           console.log(data);
-          this.addData2 = data;
+          this.addData2 = data;  // 箭头函数确保 this 指向正确
         })
-        .catch(error => {
-          // 处理错误
-          console.error(error);
+        .catch((error) => {
+          console.error('Error:', error);
         });
     }
     ,
